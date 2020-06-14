@@ -12,5 +12,4 @@ private:
 	Window* window;
 };
 
-
 #endif //BACKGROUND_HPP
