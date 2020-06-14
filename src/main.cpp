@@ -19,8 +19,6 @@ int main(int argc, char** argv)
 	Game* game = new Game(window);
 	game->run();
 
-	SDL_Delay(3000);
-
 	std::cout << "Stopped\n";
 
 	return 0;

@@ -13,11 +13,13 @@ public:
 
 	Game(Window* window);
 	~Game();
-	GameState getState();
+	void update();
 	void run();
 
 private:
 	Window* window;
+	GameState state;
+	bool quit;
 };
 
 #endif //GAME_HPP

@@ -1,27 +1,41 @@
 #include "Game.hpp"
 #include "Background.hpp"
+#include "Input.hpp"
 
 Game::Game(Window* window): 
 	window(window)
 {
+	quit = false;
+	state = GameState::RUN;
 }
 
 Game::~Game() 
 {
 }
 
-Game::GameState Game::getState()
+void Game::update()
 {
-	return GameState::RUN;
+	Input* input = Input::getInstance();
+
+	this->state = GameState::RUN;
 }
 
 void Game::run()
 {
-	GameState state = this->getState();
+	quit = false;
 
-	if (state == Game::GameState::RUN) 
-	{
-		Background* bg = new Background(this->window);
-		this->window->draw();
+	while (!quit) {
+		this->update();
+
+		switch (this->state) 
+		{
+			case Game::GameState::RUN:
+				Background* bg = new Background(this->window);
+				this->window->draw();
+				break;
+		}
+
+		SDL_Delay(3000);
+		quit = true;
 	}
 }
