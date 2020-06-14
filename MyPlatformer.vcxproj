@@ -149,13 +149,18 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Background.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SDL.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Background.hpp" />
     <ClInclude Include="SDL.hpp" />
     <ClInclude Include="Window.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="BG.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

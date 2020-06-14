@@ -11,10 +11,12 @@ public:
 	bool init(uint32_t, uint32_t, std::string);
 	void draw();
 
-private:
 	SDL_Window* window;
 	SDL_Surface* surface;
 	SDL_Renderer* renderer;
+
+private:
+
 };
 
 #endif //WINDOW
