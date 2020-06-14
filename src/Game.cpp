@@ -1,7 +1,9 @@
 #include "Game.hpp"
 #include "Background.hpp"
 #include "Input.hpp"
+#include "Font.hpp"
 #include <iostream>
+#include <SDL_ttf.h>
 
 Game::Game(Window* window): 
 	window(window),
@@ -9,6 +11,7 @@ Game::Game(Window* window):
 	state(GameState::INIT)
 {
 	Background* bg = nullptr;
+	Font* font = nullptr;
 	this->load();
 }
 
@@ -19,6 +22,9 @@ Game::~Game()
 void Game::load()
 {
 	Background* bg = new Background(this->window);
+
+	Font* font = new Font(this->window);
+
 	this->state = GameState::RUN;
 }
 
@@ -53,4 +59,6 @@ void Game::run()
 			break;
 		}
 	}
+
+
 }

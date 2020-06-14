@@ -2,6 +2,7 @@
 #include "SDL.hpp"
 #include "SDL.h"
 #include "SDL_image.h"
+#include "SDL_ttf.h"
 
 bool SDL::init()
 {
@@ -15,6 +16,12 @@ bool SDL::init()
 	if (SDL_Init(IMG_INIT_PNG) < 0)
 	{
 		std::cout << "SDL Image could not initialize!" << SDL_GetError();
+	}
+
+	//Initialize SDL Font
+	if (TTF_Init() < 0)
+	{
+		std::cout << "SDL Font could not initialize!" << SDL_GetError();
 	}
 
 	return true;
