@@ -149,20 +149,20 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Background.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="SDL.cpp" />
-    <ClCompile Include="Window.cpp" />
+    <ClCompile Include="src\Background.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\SDL.cpp" />
+    <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Background.hpp" />
-    <ClInclude Include="Game.hpp" />
-    <ClInclude Include="SDL.hpp" />
-    <ClInclude Include="Window.hpp" />
+    <ClInclude Include="src\Background.hpp" />
+    <ClInclude Include="src\Game.hpp" />
+    <ClInclude Include="src\SDL.hpp" />
+    <ClInclude Include="src\Window.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="BG.png" />
+    <Image Include="resource\BG.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

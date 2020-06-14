@@ -6,8 +6,14 @@
 class Game
 {
 public:
+	enum class GameState
+	{
+		QUIT, RUN
+	};
+
 	Game(Window* window);
 	~Game();
+	GameState getState();
 	void run();
 
 private:
