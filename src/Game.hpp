@@ -13,6 +13,7 @@ public:
 
 	Game(Window* window);
 	~Game();
+	void load();
 	void update();
 	void run();
 

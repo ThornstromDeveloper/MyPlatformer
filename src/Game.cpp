@@ -9,10 +9,17 @@ Game::Game(Window* window):
 	state(GameState::INIT)
 {
 	Background* bg = nullptr;
+	this->load();
 }
 
 Game::~Game() 
 {
+}
+
+void Game::load()
+{
+	Background* bg = new Background(this->window);
+	this->state = GameState::RUN;
 }
 
 void Game::update()
@@ -33,13 +40,6 @@ void Game::run()
 
 		switch (this->state) 
 		{
-			case Game::GameState::INIT:
-			{
-				Background* bg = new Background(this->window);
-				this->state = GameState::RUN;
-			}
-			break;
-
 			case Game::GameState::RUN:
 			{
 				this->window->draw();
