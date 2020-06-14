@@ -7,8 +7,13 @@ int main(int argc, char** argv)
 {
 	std::cout << "Start\n";
 
+	//initialize SDL
 	SDL::init();
-	Window* win = new Window();
+
+	//create window
+	Window window(100, 100, "My Platformer");
 
 	std::cout << "Stopped\n";
+
+	return 0;
 }
