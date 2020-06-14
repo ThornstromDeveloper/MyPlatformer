@@ -11,7 +11,9 @@ int main(int argc, char** argv)
 	SDL::init();
 
 	//create window
-	Window window(100, 100, "My Platformer");
+	Window* window = new Window(100, 100, "My Platformer");
+
+	window->draw();
 
 	std::cout << "Stopped\n";
 

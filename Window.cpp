@@ -30,3 +30,7 @@ bool Window::init(uint32_t width, uint32_t height, std::string title)
 
 	return true;
 }
+
+void Window::draw() {
+	SDL_RenderPresent(this->renderer);
+}
