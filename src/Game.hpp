@@ -8,7 +8,7 @@ class Game
 public:
 	enum class GameState
 	{
-		QUIT, RUN
+		INIT, RUN, QUIT
 	};
 
 	Game(Window* window);

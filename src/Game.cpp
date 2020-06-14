@@ -1,12 +1,14 @@
 #include "Game.hpp"
 #include "Background.hpp"
 #include "Input.hpp"
+#include <iostream>
 
 Game::Game(Window* window): 
-	window(window)
+	window(window),
+	quit(false),
+	state(GameState::INIT)
 {
-	quit = false;
-	state = GameState::RUN;
+	Background* bg = nullptr;
 }
 
 Game::~Game() 
@@ -17,7 +19,9 @@ void Game::update()
 {
 	Input* input = Input::getInstance();
 
-	this->state = GameState::RUN;
+	if (input->quit == true) {
+		this->state = GameState::QUIT;
+	}
 }
 
 void Game::run()
@@ -29,13 +33,24 @@ void Game::run()
 
 		switch (this->state) 
 		{
-			case Game::GameState::RUN:
+			case Game::GameState::INIT:
+			{
 				Background* bg = new Background(this->window);
-				this->window->draw();
-				break;
-		}
+				this->state = GameState::RUN;
+			}
+			break;
 
-		SDL_Delay(3000);
-		quit = true;
+			case Game::GameState::RUN:
+			{
+				this->window->draw();
+			}
+			break;
+
+			case Game::GameState::QUIT:
+			{
+				quit = true;
+			}
+			break;
+		}
 	}
 }

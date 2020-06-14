@@ -3,8 +3,9 @@
 
 Input* Input::instance = nullptr;
 
-Input::Input()
-{ 
+Input::Input():
+	quit(false)
+{ 	
 }
 
 Input* Input::getInstance()
@@ -14,11 +15,29 @@ Input* Input::getInstance()
 		instance = new Input();
 	}
 
+	instance->update();
+
 	return instance;
 }
 
-void Input::update()
+bool Input::update()
 {
-	//to be polled
-	SDL_Event event;
+	SDL_Event e;
+
+	while (SDL_PollEvent(&e) != 0)
+	{
+		if (e.type == SDL_KEYDOWN)
+		{
+			switch (e.key.keysym.sym)
+			{
+				case SDLK_ESCAPE:
+				{
+					this->quit = true;
+				}
+					break;
+			}
+		}
+	}
+
+	return true;
 }
