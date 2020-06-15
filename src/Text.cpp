@@ -44,5 +44,6 @@ Text::Text(Window* window, int frameCount):
     int y = 0;
     SDL_Rect dst = { x, y, t_width, t_height };
     SDL_RenderCopy(window->renderer, ftexture, NULL, &dst);
-    SDL_FreeSurface(text_surface);    
+    SDL_FreeSurface(text_surface);
+    SDL_DestroyTexture(ftexture);
 }

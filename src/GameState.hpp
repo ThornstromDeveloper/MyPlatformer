@@ -3,6 +3,7 @@
 
 #include "Window.hpp"
 #include "Game.hpp"
+#include "Background.hpp"
 
 class GameState
 {
@@ -14,8 +15,9 @@ public:
 
 	GameState(Window* window);
 	~GameState();
-	GameState::State load(int);
+	void load(int);
 	GameState::State update();
+	void render(int);
 
 private:
 	Window* window;

@@ -30,8 +30,8 @@ void Game::run()
 		{
 			case GameState::State::RUN:
 			{
-				//this->window->clear();
-				this->state->update();
+				this->window->clear();
+				this->state->render(frameCount);
 				this->window->draw();
 			}
 			break;

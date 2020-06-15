@@ -7,7 +7,6 @@ Window::Window(uint32_t width, uint32_t height, std::string title):
 	surface(nullptr),
 	renderer(nullptr)
 {
-	this->window = nullptr;
 	this->init(width, height, title);
 }
 

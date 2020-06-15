@@ -13,4 +13,5 @@ Background::Background(Window* window):
 	}
 
 	SDL_RenderCopy(window->renderer, texture, NULL, NULL);
+	SDL_DestroyTexture(texture);
 }

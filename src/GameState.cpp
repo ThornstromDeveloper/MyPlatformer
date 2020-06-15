@@ -10,18 +10,17 @@ GameState::GameState(Window* window):
 	Background* bg = nullptr;
 	Text* text = nullptr;
 	Input* input = nullptr;
+	GameState* state = nullptr;
 }
 
 GameState::~GameState()
 {
 }
 
-GameState::State GameState::load(int frameCount)
+void GameState::load(int frameCount)
 {
 	Background* bg = new Background(this->window);
 	Text* text = new Text(this->window, frameCount);
-
-	return GameState::State::RUN;
 }
 
 GameState::State GameState::update()
@@ -33,4 +32,9 @@ GameState::State GameState::update()
 	}
 
 	return GameState::State::RUN;
+}
+
+void GameState::render(int frameCount)
+{
+	this->load(frameCount);
 }
