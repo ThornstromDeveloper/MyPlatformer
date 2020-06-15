@@ -1,44 +1,20 @@
 #include "Game.hpp"
-#include "Background.hpp"
 #include "Input.hpp"
-#include "Text.hpp"
+#include "GameState.hpp"
 #include <iostream>
 #include <SDL_ttf.h>
 
 Game::Game(Window* window): 
 	window(window),
-	quit(false),
-	state(GameState::INIT)
+	state(nullptr),
+	frameCount(0)
 {
-	Background* bg = nullptr;
-	Text* text = nullptr;
-	this->load();
+	this->state = new GameState(this->window);
+	this->state->load(frameCount);
 }
 
 Game::~Game() 
 {
-}
-
-int Game::getFrameCount() const
-{
-	return frameCount;
-}
-
-void Game::load()
-{
-	Background* bg = new Background(this->window);
-	Text* text = new Text(this->window, frameCount);
-
-	this->state = GameState::RUN;
-}
-
-void Game::update()
-{
-	Input* input = Input::getInstance();
-
-	if (input->quit == true) {
-		this->state = GameState::QUIT;
-	}
 }
 
 void Game::run()
@@ -46,18 +22,21 @@ void Game::run()
 	quit = false;
 
 	while (!quit) {
-		this->update();
+		GameState::State action;
 
-		switch (this->state) 
+		action = this->state->update();
+
+		switch (action) 
 		{
-			case Game::GameState::RUN:
+			case GameState::State::RUN:
 			{
 				//this->window->clear();
+				this->state->update();
 				this->window->draw();
 			}
 			break;
 
-			case Game::GameState::QUIT:
+			case GameState::State::QUIT:
 			{
 				quit = true;
 			}
