@@ -1,12 +1,12 @@
-#include "Font.hpp"
-
-#include "SDL.h"
-#include <SDL_TTF.h>
-#include <iostream>
-#include <string>
+#include "Text.hpp"
 #include "Window.hpp"
 
-Font::Font(Window* window) :
+#include <iostream>
+#include <string>
+#include "SDL.h"
+#include "SDL_TTF.h"
+
+Text::Text(Window* window, int frameCount):
     window(window)
 {
     int fontsize = 40;
@@ -15,9 +15,10 @@ Font::Font(Window* window) :
     SDL_Color text_color = { 0,0,0 };
 
     std::string fontpath = "resource/Roboto-Bold.ttf";
-    std::string text = "TEST";
+    std::string text = std::to_string(frameCount);
 
     TTF_Font* font = TTF_OpenFont(fontpath.c_str(), fontsize);
+
     SDL_Texture* ftexture = NULL;
 
     if (font == NULL) {
@@ -43,5 +44,5 @@ Font::Font(Window* window) :
     int y = 0;
     SDL_Rect dst = { x, y, t_width, t_height };
     SDL_RenderCopy(window->renderer, ftexture, NULL, &dst);
-    SDL_FreeSurface(text_surface);
+    SDL_FreeSurface(text_surface);    
 }

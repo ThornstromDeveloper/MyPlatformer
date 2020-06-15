@@ -13,13 +13,15 @@ public:
 
 	Game(Window* window);
 	~Game();
+	int getFrameCount() const;
 	void load();
 	void update();
-	void run();
+	void run();	
 
 private:
 	Window* window;
 	GameState state;
+	int frameCount;
 	bool quit;
 };
 

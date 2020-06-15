@@ -9,6 +9,7 @@ class Window
 public:
 	Window(uint32_t, uint32_t, std::string);
 	bool init(uint32_t, uint32_t, std::string);
+	void clear();
 	void draw();
 
 	SDL_Window* window;

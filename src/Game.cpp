@@ -1,7 +1,7 @@
 #include "Game.hpp"
 #include "Background.hpp"
 #include "Input.hpp"
-#include "Font.hpp"
+#include "Text.hpp"
 #include <iostream>
 #include <SDL_ttf.h>
 
@@ -11,7 +11,7 @@ Game::Game(Window* window):
 	state(GameState::INIT)
 {
 	Background* bg = nullptr;
-	Font* font = nullptr;
+	Text* text = nullptr;
 	this->load();
 }
 
@@ -19,11 +19,15 @@ Game::~Game()
 {
 }
 
+int Game::getFrameCount() const
+{
+	return frameCount;
+}
+
 void Game::load()
 {
 	Background* bg = new Background(this->window);
-
-	Font* font = new Font(this->window);
+	Text* text = new Text(this->window, frameCount);
 
 	this->state = GameState::RUN;
 }
@@ -48,6 +52,7 @@ void Game::run()
 		{
 			case Game::GameState::RUN:
 			{
+				//this->window->clear();
 				this->window->draw();
 			}
 			break;
@@ -58,7 +63,7 @@ void Game::run()
 			}
 			break;
 		}
+
+		frameCount++;
 	}
-
-
 }

@@ -2,7 +2,10 @@
 #include "Window.hpp"
 #include "SDL.h"
 
-Window::Window(uint32_t width, uint32_t height, std::string title)
+Window::Window(uint32_t width, uint32_t height, std::string title):
+	window(nullptr),
+	surface(nullptr),
+	renderer(nullptr)
 {
 	this->window = nullptr;
 	this->init(width, height, title);
@@ -29,6 +32,11 @@ bool Window::init(uint32_t width, uint32_t height, std::string title)
 	}
 
 	return true;
+}
+
+void Window::clear()
+{
+	SDL_RenderClear(this->renderer);
 }
 
 void Window::draw() {

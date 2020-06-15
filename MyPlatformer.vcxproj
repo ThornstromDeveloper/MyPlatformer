@@ -150,7 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Background.cpp" />
-    <ClCompile Include="src\Font.cpp" />
+    <ClCompile Include="src\Text.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -159,7 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Background.hpp" />
-    <ClInclude Include="src\Font.hpp" />
+    <ClInclude Include="src\Text.hpp" />
     <ClInclude Include="src\Game.hpp" />
     <ClInclude Include="src\Input.hpp" />
     <ClInclude Include="src\SDL.hpp" />
