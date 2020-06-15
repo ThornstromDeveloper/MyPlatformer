@@ -6,6 +6,10 @@
 Background::Background(Window* window): 
 	window(window)
 {
+}
+
+void Background::load()
+{
 	SDL_Texture* texture = IMG_LoadTexture(window->renderer, "resource/BG.png");
 
 	if (texture == NULL) {

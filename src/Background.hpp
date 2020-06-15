@@ -7,9 +7,11 @@ class Background
 {
 public:
 	Background(Window* window);
+	void load();
 
 private:
 	Window* window;
+
 };
 
 #endif //BACKGROUND_HPP

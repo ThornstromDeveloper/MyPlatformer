@@ -20,6 +20,8 @@ GameState::~GameState()
 void GameState::load(int frameCount)
 {
 	Background* bg = new Background(this->window);
+	bg->load();
+
 	Text* text = new Text(this->window, frameCount);
 }
 
