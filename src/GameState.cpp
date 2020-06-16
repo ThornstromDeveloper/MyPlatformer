@@ -6,7 +6,9 @@
 
 //GameState constructor
 GameState::GameState(Window* window):
-	window(window)
+	window(window),
+	quit(false),
+	state(nullptr)
 {
 	Background* bg = nullptr;
 	Text* text = nullptr;
