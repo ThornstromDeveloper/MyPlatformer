@@ -3,12 +3,14 @@
 #include "Background.hpp"
 #include "Text.hpp"
 #include "Input.hpp"
+#include "Player.hpp"
 
 //GameState constructor
 GameState::GameState(Window* window):
 	window(window),
 	quit(false),
-	state(nullptr)
+	state(nullptr),
+	player(nullptr)
 {
 	Background* bg = nullptr;
 	Text* text = nullptr;
@@ -28,6 +30,8 @@ void GameState::load(int frameCount)
 	bg->load();
 
 	Text* text = new Text(this->window, frameCount);
+
+	this->player = new Player(this->window);
 }
 
 //unload GameState

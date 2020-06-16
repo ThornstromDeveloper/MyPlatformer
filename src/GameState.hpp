@@ -4,6 +4,7 @@
 #include "Window.hpp"
 #include "Game.hpp"
 #include "Background.hpp"
+#include "Player.hpp"
 
 class GameState
 {
@@ -23,6 +24,7 @@ public:
 private:
 	Window* window;
 	GameState* state;
+	Player* player;
 	void updateInput();
 	bool quit;
 };

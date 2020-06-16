@@ -4,8 +4,11 @@
 class Player
 {
 public:
-	Player();
+	Player(Window* window);
 	~Player();
+
+private:
+	Window* window;
 };
 
 #endif //PLAYER_HPP
