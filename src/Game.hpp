@@ -2,6 +2,7 @@
 #define GAME_HPP
 
 #include "Window.hpp"
+#include "GameState.hpp"
 
 class Game
 {
