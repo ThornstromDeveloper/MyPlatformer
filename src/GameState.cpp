@@ -4,6 +4,7 @@
 #include "Text.hpp"
 #include "Input.hpp"
 
+//GameState constructor
 GameState::GameState(Window* window):
 	window(window)
 {
@@ -13,10 +14,12 @@ GameState::GameState(Window* window):
 	GameState* state = nullptr;
 }
 
+//GameState destructor
 GameState::~GameState()
 {
 }
 
+//load GameState
 void GameState::load(int frameCount)
 {
 	Background* bg = new Background(this->window);
@@ -25,23 +28,36 @@ void GameState::load(int frameCount)
 	Text* text = new Text(this->window, frameCount);
 }
 
+//unload GameState
 int GameState::unload()
 {
 	return 0;
 }
 
+//update GameState
 GameState::State GameState::update()
 {
-	Input* input = Input::getInstance();
+	this->updateInput();
 
-	if (input->quit == true) {
+	if (this->quit) {
 		return GameState::State::QUIT;
 	}
 
 	return GameState::State::RUN;
 }
 
+//render GameState
 void GameState::render(int frameCount)
 {
 	this->load(frameCount);
+}
+
+//check Input
+void GameState::updateInput()
+{
+	Input* input = Input::getInstance();
+
+	if (input->quit) {
+		this->quit = true;
+	}
 }

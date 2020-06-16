@@ -34,7 +34,7 @@ bool Input::update()
 				{
 					this->quit = true;
 				}
-					break;
+				break;
 			}
 		}
 	}

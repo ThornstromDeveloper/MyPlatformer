@@ -18,11 +18,13 @@ public:
 	void load(int);
 	int unload();
 	GameState::State update();
-	void render(int);
+	void render(int);	
 
 private:
 	Window* window;
 	GameState* state;
+	void updateInput();
+	bool quit;
 };
 
 #endif //GAMESTATE_HPP
