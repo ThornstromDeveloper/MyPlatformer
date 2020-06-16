@@ -6,8 +6,8 @@
 class Player
 {
 public:
-	enum FacingDirection { LEFT, RIGHT };
-	enum PossibleAnimation
+	enum class FacingDirection { LEFT, RIGHT };
+	enum class PossibleAnimation
 	{
 		STANDING_LEFT, 
 		STANDING_RIGHT,

@@ -4,7 +4,7 @@
 //Player constructor
 Player::Player(Window* window):
 	window(window),
-	facingDirection(RIGHT)
+	facingDirection(Player::FacingDirection::RIGHT)
 {
 }
 
