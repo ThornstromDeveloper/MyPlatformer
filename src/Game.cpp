@@ -1,9 +1,7 @@
 #include "Game.hpp"
-#include "Input.hpp"
 #include "GameState.hpp"
-#include <iostream>
-#include <SDL_ttf.h>
 
+//Game constructor
 Game::Game(Window* window): 
 	window(window),
 	state(nullptr),
@@ -13,13 +11,22 @@ Game::Game(Window* window):
 	this->state->load(frameCount);
 }
 
+//Game destructor
 Game::~Game() 
 {
+	if (this->state)
+	{
+		this->state->unload();
+		delete this->state;
+
+		this->state = nullptr;
+	}
 }
 
+//run Game
 void Game::run()
 {
-	quit = false;
+	bool quit = false;
 
 	while (!quit) {
 		GameState::State action;

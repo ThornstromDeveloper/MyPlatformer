@@ -25,6 +25,11 @@ void GameState::load(int frameCount)
 	Text* text = new Text(this->window, frameCount);
 }
 
+int GameState::unload()
+{
+	return 0;
+}
+
 GameState::State GameState::update()
 {
 	Input* input = Input::getInstance();

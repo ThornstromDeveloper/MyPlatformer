@@ -16,6 +16,7 @@ public:
 	GameState(Window* window);
 	~GameState();
 	void load(int);
+	int unload();
 	GameState::State update();
 	void render(int);
 

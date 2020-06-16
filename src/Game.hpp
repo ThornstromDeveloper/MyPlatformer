@@ -2,7 +2,6 @@
 #define GAME_HPP
 
 #include "Window.hpp"
-#include "GameState.hpp"
 
 class Game
 {
@@ -15,7 +14,6 @@ private:
 	Window* window;
 	GameState* state;
 	int frameCount;
-	bool quit;
 };
 
 #endif //GAME_HPP
