@@ -1,6 +1,6 @@
 #include <iostream>
 #include "SDL.hpp"
-#include "window.hpp"
+#include "Window.hpp"
 #include "Game.hpp"
 #include "Background.hpp"
 
@@ -13,10 +13,10 @@ int main(int argc, char** argv)
 	SDL::init();
 
 	//create window
-	Window* window = new Window(100, 100, "My Platformer");
+	Window window(100, 100, "My Platformer");
 
 	//create game, and run
-	Game* game = new Game(window);
+	Game* game = new Game(&window);
 	game->run();
 
 	std::cout << "Stopped\n";
