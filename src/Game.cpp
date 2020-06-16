@@ -4,11 +4,10 @@
 //Game constructor
 Game::Game(Window* window): 
 	window(window),
-	state(nullptr),
-	frameCount(0)
+	state(nullptr)
 {
 	this->state = new GameState(this->window);
-	this->state->load(frameCount);
+	this->state->load(0);
 }
 
 //Game destructor
@@ -27,10 +26,10 @@ Game::~Game()
 void Game::run()
 {
 	bool quit = false;
+	int frameCount = 0;
+	GameState::State action;
 
 	while (!quit) {
-		GameState::State action;
-
 		action = this->state->update();
 
 		switch (action) 

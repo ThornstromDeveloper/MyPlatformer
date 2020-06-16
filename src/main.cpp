@@ -7,7 +7,7 @@
 //program entry point
 int main(int argc, char** argv)
 {
-	std::cout << "Start\n";
+	std::cout << "Started\n";
 
 	//initialize SDL
 	SDL::init();

@@ -14,7 +14,6 @@ public:
 private:
 	Window* window;
 	GameState* state;
-	int frameCount;
 };
 
 #endif //GAME_HPP
