@@ -3,7 +3,8 @@
 
 //Player constructor
 Player::Player(Window* window):
-	window(window)
+	window(window),
+	facingDirection(RIGHT)
 {
 }
 
