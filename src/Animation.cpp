@@ -1,7 +1,7 @@
 #include "Animation.hpp"
 
 //Animation constructor
-Animation::Animation()	
+Animation::Animation(Window* window, std::string filename)
 {
 }
 

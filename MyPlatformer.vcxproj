@@ -149,6 +149,7 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Animation.cpp" />
     <ClCompile Include="src\Background.cpp" />
     <ClCompile Include="src\GameState.cpp" />
     <ClCompile Include="src\Player.cpp" />
@@ -160,6 +161,7 @@
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Animation.hpp" />
     <ClInclude Include="src\Background.hpp" />
     <ClInclude Include="src\GameState.hpp" />
     <ClInclude Include="src\Player.hpp" />

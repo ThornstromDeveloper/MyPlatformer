@@ -1,7 +1,9 @@
 #ifndef PLAYER_HPP
 #define PLAYER_HPP
 
+#include <vector>
 #include "Window.hpp"
+#include "Animation.hpp"
 
 class Player
 {
@@ -21,6 +23,7 @@ public:
 
 private:
 	Window* window;
+	std::vector<Animation*> animations;
 	FacingDirection facingDirection;
 };
 
