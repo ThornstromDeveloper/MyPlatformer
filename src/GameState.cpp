@@ -37,17 +37,20 @@ void GameState::load(int frameCount)
 //unload GameState
 int GameState::unload()
 {
+	delete this->player;
+
 	return 0;
 }
 
 //update GameState
 GameState::State GameState::update()
 {
-	this->updateInput();
-
 	if (this->quit) {
 		return GameState::State::QUIT;
 	}
+
+	this->updateInput();
+	this->player->update();
 
 	return GameState::State::RUN;
 }

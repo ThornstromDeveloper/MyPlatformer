@@ -11,3 +11,14 @@ Player::Player(Window* window):
 Player::~Player()
 {
 }
+
+//update Player
+void Player::update()
+{
+	this->updateAnimation();
+}
+
+//update Player animation
+void Player::updateAnimation()
+{
+}

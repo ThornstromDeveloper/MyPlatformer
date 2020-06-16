@@ -1,11 +1,15 @@
 #ifndef PLAYER_HPP
 #define PLAYER_HPP
 
+#include "Window.hpp"
+
 class Player
 {
 public:
 	Player(Window* window);
-	~Player();
+	virtual ~Player();
+	void update();
+	void updateAnimation();
 
 private:
 	Window* window;
