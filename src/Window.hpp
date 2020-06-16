@@ -10,7 +10,7 @@ public:
 	Window(uint32_t, uint32_t, std::string);
 	virtual ~Window();
 	void destroy();
-	void create(uint32_t, uint32_t, std::string);
+	void create();
 	void refresh();
 	void clear();
 	void setTitle(std::string title);

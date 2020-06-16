@@ -6,12 +6,13 @@
 Window::Window(uint32_t width, uint32_t height, std::string title):
 	window(nullptr),
 	surface(nullptr),
-	renderer(nullptr),
-	width(width),
-	height(height),
-	title(title)
+	renderer(nullptr)
 {
-	this->create(width, height, title);
+	this->setTitle(title);
+	this->width = width;
+	this->height = height;
+
+	this->create();
 }
 
 //Window destructor
@@ -43,11 +44,11 @@ void Window::destroy()
 }
 
 //create Window
-void Window::create(uint32_t width, uint32_t height, std::string title)
+void Window::create()
 {
 	this->destroy();
 
-	SDL_CreateWindowAndRenderer(width, height, SDL_WINDOW_FULLSCREEN_DESKTOP, &(this->window), &(this->renderer));
+	SDL_CreateWindowAndRenderer(this->width, this->height, SDL_WINDOW_FULLSCREEN_DESKTOP, &(this->window), &(this->renderer));
 
 	if (!this->window || !this->renderer)
 	{
@@ -55,7 +56,7 @@ void Window::create(uint32_t width, uint32_t height, std::string title)
 		return;
 	}
 
-	this->setTitle(title);
+	this->setTitle(this->title);
 
 	this->surface = SDL_GetWindowSurface(this->window);
 
@@ -64,9 +65,6 @@ void Window::create(uint32_t width, uint32_t height, std::string title)
 		std::cout << "SDL Surface could not be created\n" << SDL_GetError();
 		return;
 	}
-
-	this->width = width;
-	this->height = height;
 }
 
 //update Window
@@ -88,4 +86,3 @@ void Window::setTitle(std::string title)
 		SDL_SetWindowTitle(this->window, title.c_str());
 	}
 }
-

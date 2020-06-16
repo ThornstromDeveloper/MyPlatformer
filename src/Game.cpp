@@ -32,7 +32,7 @@ void Game::run()
 			{
 				this->window->clear();
 				this->state->render(frameCount);
-				this->window->draw();
+				this->window->refresh();
 			}
 			break;
 
