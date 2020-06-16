@@ -15,13 +15,13 @@ bool SDL::init()
 	//Initialize SDL Image
 	if (SDL_Init(IMG_INIT_PNG) < 0)
 	{
-		std::cout << "SDL Image could not initialize!" << SDL_GetError();
+		std::cout << "SDL Image could not initialize!" << IMG_GetError();
 	}
 
 	//Initialize SDL Font
 	if (TTF_Init() < 0)
 	{
-		std::cout << "SDL Font could not initialize!" << SDL_GetError();
+		std::cout << "SDL Font could not initialize!" << TTF_GetError();
 	}
 
 	return true;
