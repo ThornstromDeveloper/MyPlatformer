@@ -2,27 +2,37 @@
 #include "Window.hpp"
 #include "SDL.h"
 
+//Window constructor
 Window::Window(uint32_t width, uint32_t height, std::string title):
 	window(nullptr),
 	surface(nullptr),
 	renderer(nullptr),
 	width(width),
-	height(height)
+	height(height),
+	title(title)
 {
-	this->init(width, height, title);
+	this->create(width, height, title);
 }
 
+//Window destructor
 Window::~Window()
 {
 	this->destroy();
 }
 
+//destroy Window
 void Window::destroy()
 {
 	if (this->renderer)
 	{
 		SDL_DestroyRenderer(this->renderer);
 		this->renderer = nullptr;
+	}
+
+	if (this->surface)
+	{
+		SDL_FreeSurface(this->surface);
+		this->surface = nullptr;
 	}
 
 	if (this->window)
@@ -32,7 +42,8 @@ void Window::destroy()
 	}
 }
 
-void Window::init(uint32_t width, uint32_t height, std::string title)
+//create Window
+void Window::create(uint32_t width, uint32_t height, std::string title)
 {
 	this->destroy();
 
@@ -44,7 +55,7 @@ void Window::init(uint32_t width, uint32_t height, std::string title)
 		return;
 	}
 
-	SDL_SetWindowTitle(this->window, title.c_str());
+	this->setTitle(title);
 
 	this->surface = SDL_GetWindowSurface(this->window);
 
@@ -58,12 +69,23 @@ void Window::init(uint32_t width, uint32_t height, std::string title)
 	this->height = height;
 }
 
+//update Window
+void Window::refresh()
+{
+	SDL_RenderPresent(this->renderer);
+}
+
+//clear Window
 void Window::clear()
 {
 	SDL_RenderClear(this->renderer);
 }
 
-void Window::draw() 
+//set Window title
+void Window::setTitle(std::string title)
 {
-	SDL_RenderPresent(this->renderer);
+	if (this->window) {
+		SDL_SetWindowTitle(this->window, title.c_str());
+	}
 }
+

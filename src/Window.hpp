@@ -10,9 +10,10 @@ public:
 	Window(uint32_t, uint32_t, std::string);
 	virtual ~Window();
 	void destroy();
-	void init(uint32_t, uint32_t, std::string);
+	void create(uint32_t, uint32_t, std::string);
+	void refresh();
 	void clear();
-	void draw();
+	void setTitle(std::string title);
 
 	SDL_Window* window;
 	SDL_Surface* surface;
@@ -22,7 +23,7 @@ public:
 	unsigned int height;
 
 private:
-
+	std::string title;
 };
 
 #endif //WINDOW
