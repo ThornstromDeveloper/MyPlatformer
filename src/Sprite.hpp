@@ -14,6 +14,9 @@ protected:
 	Window* window;
 	std::string filename;
 	SDL_Texture* image;
+
+	int width;
+	int height;
 };
 
 #endif //SPRITE_HPP

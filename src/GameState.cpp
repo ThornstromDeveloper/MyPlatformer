@@ -31,7 +31,13 @@ void GameState::load(int frameCount)
 
 	Text* text = new Text(this->window, frameCount);
 
-	this->player = new Player(this->window);
+	int playerW = 14;
+	int playerH = 27;
+
+	int playerX = 100;
+	int playerY = 100;
+
+	this->player = new Player(this->window, playerX, playerY, playerW, playerH);
 }
 
 //unload GameState

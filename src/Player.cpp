@@ -2,7 +2,7 @@
 #include "Window.hpp"
 
 //Player constructor
-Player::Player(Window* window):
+Player::Player(Window* window, int x, int y, int w, int h):
 	window(window),
 	facingDirection(Player::FacingDirection::RIGHT)
 {

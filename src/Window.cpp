@@ -101,10 +101,10 @@ void Window::freeImage(SDL_Surface* image)
 }
 
 //render image in Window
-void Window::renderImage(SDL_Texture* texture)
+void Window::renderImage(SDL_Texture* texture, SDL_Rect src, SDL_Rect dest)
 {
-	SDL_Rect sdl_source = {	100, 100, 800, 800 };
-	SDL_Rect sdl_destination = { 100, 100, 800, 800 };
+	SDL_Rect sdl_source = src;
+	SDL_Rect sdl_destination = dest;
 
 	SDL_RenderCopy(this->renderer, texture, &sdl_source, &sdl_destination);
 }

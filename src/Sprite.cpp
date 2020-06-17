@@ -9,6 +9,9 @@ Sprite::Sprite(Window* window, std::string filename):
 	this->image = window->loadImage(this->filename);
 	int w, h;
 	SDL_QueryTexture(image, nullptr, nullptr, &w, &h);
+
+	this->width = w;
+	this->height = h;
 }
 
 //Sprite destructor
@@ -23,5 +26,17 @@ Sprite::~Sprite()
 //render Sprite
 void Sprite::render()
 {
-	this->window->renderImage(this->image);
+	SDL_Rect src;
+	src.x = 100;
+	src.y = 100;
+	src.w = width;
+	src.h = height;
+
+	SDL_Rect dest;
+	dest.x = 100;
+	dest.y = 100;
+	dest.w = 100;
+	dest.h = 100;
+
+	this->window->renderImage(this->image, src, dest);
 }

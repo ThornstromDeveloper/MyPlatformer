@@ -16,7 +16,7 @@ public:
 		ANIMATION_MAX
 	};
 
-	Player(Window* window);
+	Player(Window* window, int x, int y, int w, int h);
 	virtual ~Player();
 	void update();
 	void render();
