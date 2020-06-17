@@ -10,7 +10,7 @@ Player::Player(Window* window):
 
 	this->animations.resize(static_cast<int>(Player::PossibleAnimation::ANIMATION_MAX));
 
-	tmp = new Animation(this->window, "resource/gubbe.png");
+	tmp = new Animation(this->window, "resource/gubbe.png", 1);
 	this->animations[static_cast<int>(Player::PossibleAnimation::STANDING_RIGHT)] = tmp;
 
 	this->currentAnimation = this->animations[static_cast<int>(Player::PossibleAnimation::STANDING_RIGHT)];
@@ -28,8 +28,15 @@ void Player::update()
 	this->updateAnimation();
 }
 
+//render Player
+void Player::render()
+{
+	this->currentAnimation->render();
+}
+
 //update Player animation
 void Player::updateAnimation()
 {
 	this->currentAnimation->update();
+	this->currentAnimation->start();
 }

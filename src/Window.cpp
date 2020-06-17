@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Window.hpp"
 #include "SDL.h"
+#include "SDL_image.h"
 
 //Window constructor
 Window::Window(uint32_t width, uint32_t height, std::string title):
@@ -71,6 +72,23 @@ void Window::create()
 void Window::refresh()
 {
 	SDL_RenderPresent(this->renderer);
+}
+
+//load image to Window renderer
+SDL_Texture* Window::loadImage(std::string filename)
+{
+	SDL_Texture* texture = IMG_LoadTexture(this->renderer, filename.c_str());
+
+	return texture;
+}
+
+//render image in Window
+void Window::renderImage(SDL_Texture* texture)
+{
+	SDL_Rect sdl_source = {	100, 100, 800, 800 };
+	SDL_Rect sdl_destination = { 100, 100, 800, 800 };
+
+	SDL_RenderCopy(this->renderer, texture, &sdl_source, &sdl_destination);
 }
 
 //clear Window

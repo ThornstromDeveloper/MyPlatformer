@@ -10,6 +10,8 @@ public:
 	Window(uint32_t, uint32_t, std::string);
 	virtual ~Window();
 	void destroy();
+	void renderImage(SDL_Texture* texture);
+	SDL_Texture* loadImage(std::string filename);
 	void create();
 	void refresh();
 	void clear();

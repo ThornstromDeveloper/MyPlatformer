@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include=".gitignore" />
+    <None Include="ClassDiagram.cd" />
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +154,7 @@
     <ClCompile Include="src\Background.cpp" />
     <ClCompile Include="src\GameState.cpp" />
     <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="src\Sprite.cpp" />
     <ClCompile Include="src\Text.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Input.cpp" />
@@ -165,6 +167,7 @@
     <ClInclude Include="src\Background.hpp" />
     <ClInclude Include="src\GameState.hpp" />
     <ClInclude Include="src\Player.hpp" />
+    <ClInclude Include="src\Sprite.hpp" />
     <ClInclude Include="src\Text.hpp" />
     <ClInclude Include="src\Game.hpp" />
     <ClInclude Include="src\Input.hpp" />
@@ -174,6 +177,7 @@
   <ItemGroup>
     <Image Include="resource\BG.png" />
     <Image Include="resource\gubbe.png" />
+    <Image Include="resource\player.gif" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="resource\Roboto-Bold.ttf" />

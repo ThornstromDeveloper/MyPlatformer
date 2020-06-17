@@ -1,9 +1,9 @@
 #ifndef ANIMATION_HPP
 #define ANIMATION_HPP
 
-#include "Window.hpp"
+#include "Sprite.hpp"
 
-class Animation
+class Animation : public Sprite
 {
 public:
 	Animation(Window* window, std::string filepath, int amount);

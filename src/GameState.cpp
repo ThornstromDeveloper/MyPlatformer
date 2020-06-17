@@ -59,6 +59,7 @@ GameState::State GameState::update()
 void GameState::render(int frameCount)
 {
 	this->load(frameCount);
+	this->player->render();
 }
 
 //check Input

@@ -19,6 +19,7 @@ public:
 	Player(Window* window);
 	virtual ~Player();
 	void update();
+	void render();
 	void updateAnimation();
 
 private:

@@ -2,6 +2,7 @@
 
 //Animation constructor
 Animation::Animation(Window* window, std::string filename, int amount):
+	Sprite(window, filename),
 	running(false),
 	curFrame(0),
 	maxFrame(amount)
