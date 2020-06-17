@@ -178,6 +178,7 @@
     <Image Include="resource\BG.png" />
     <Image Include="resource\gubbe.png" />
     <Image Include="resource\player.gif" />
+    <Image Include="resource\smb3_mario_sheet.png" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="resource\Roboto-Bold.ttf" />

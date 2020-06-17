@@ -96,6 +96,9 @@
     <Image Include="resource\gubbe.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="resource\smb3_mario_sheet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="resource\Roboto-Bold.ttf">
