@@ -9,3 +9,8 @@ Animation::Animation(Window* window, std::string filename)
 Animation::~Animation()
 {
 }
+
+//start Animation
+void Animation::start()
+{
+}

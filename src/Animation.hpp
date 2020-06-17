@@ -8,6 +8,7 @@ class Animation
 public:
 	Animation(Window* window, std::string filepath);
 	~Animation();
+	void start();
 
 private:
 };

@@ -12,6 +12,9 @@ Player::Player(Window* window):
 
 	tmp = new Animation(this->window, "resource/gubbe.png");
 	this->animations[static_cast<int>(Player::PossibleAnimation::STANDING_RIGHT)] = tmp;
+
+	this->currentAnimation = this->animations[static_cast<int>(Player::PossibleAnimation::STANDING_RIGHT)];
+	this->currentAnimation->start();
 }
 
 //Player destructor

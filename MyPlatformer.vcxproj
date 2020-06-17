@@ -173,6 +173,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="resource\BG.png" />
+    <Image Include="resource\gubbe.png" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="resource\Roboto-Bold.ttf" />

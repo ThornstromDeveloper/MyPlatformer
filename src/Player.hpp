@@ -23,6 +23,7 @@ public:
 
 private:
 	Window* window;
+	Animation* currentAnimation;
 	std::vector<Animation*> animations;
 	FacingDirection facingDirection;
 };
