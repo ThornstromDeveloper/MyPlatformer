@@ -9,8 +9,11 @@ public:
 	Animation(Window* window, std::string filepath);
 	~Animation();
 	void start();
+	void update();
+	void nextFrame();
 
 private:
+	int curFrame;
 };
 
 #endif //ANIMATION_HPP

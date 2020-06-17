@@ -31,4 +31,5 @@ void Player::update()
 //update Player animation
 void Player::updateAnimation()
 {
+	this->currentAnimation->update();
 }
