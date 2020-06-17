@@ -1,9 +1,10 @@
 #include "Animation.hpp"
 
 //Animation constructor
-Animation::Animation(Window* window, std::string filename):
+Animation::Animation(Window* window, std::string filename, int amount):
 	running(false),
-	curFrame(0)
+	curFrame(0),
+	maxFrame(amount)
 {
 }
 
@@ -25,8 +26,19 @@ void Animation::update()
 	this->nextFrame();
 }
 
-//set next Animation frame
+//next frame of Animation
 void Animation::nextFrame()
 {
     this->curFrame++;
+
+	if (this->curFrame >= this->maxFrame)
+	{
+		this->firstFrame();
+	}
+}
+
+//first frame of Animation
+void Animation::firstFrame()
+{
+    this->curFrame = 0;
 }
