@@ -90,12 +90,6 @@
     <Image Include="resource\BG.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="resource\player.gif">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resource\gubbe.png">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="resource\smb3_mario_sheet.png">
       <Filter>Resource Files</Filter>
     </Image>

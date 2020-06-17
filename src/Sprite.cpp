@@ -14,6 +14,10 @@ Sprite::Sprite(Window* window, std::string filename):
 //Sprite destructor
 Sprite::~Sprite()
 {
+	if (this->image)
+	{
+		this->window->freeImage(this->image);
+	}
 }
 
 //render Sprite

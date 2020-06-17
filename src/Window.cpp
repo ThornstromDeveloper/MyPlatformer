@@ -82,6 +82,24 @@ SDL_Texture* Window::loadImage(std::string filename)
 	return texture;
 }
 
+//free texture image from Window
+void Window::freeImage(SDL_Texture* image)
+{
+	if (image)
+	{
+		SDL_DestroyTexture(image);
+	}
+}
+
+//free surface image from Window
+void Window::freeImage(SDL_Surface* image)
+{
+	if (image)
+	{
+		SDL_FreeSurface(image);
+	}
+}
+
 //render image in Window
 void Window::renderImage(SDL_Texture* texture)
 {

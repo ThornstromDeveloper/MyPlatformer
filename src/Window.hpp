@@ -12,6 +12,8 @@ public:
 	void destroy();
 	void renderImage(SDL_Texture* texture);
 	SDL_Texture* loadImage(std::string filename);
+	void freeImage(SDL_Texture* image);
+	void freeImage(SDL_Surface* image);
 	void create();
 	void refresh();
 	void clear();
