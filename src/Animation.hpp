@@ -13,6 +13,7 @@ public:
 	void nextFrame();
 
 private:
+	bool running;
 	int curFrame;
 };
 

@@ -2,6 +2,7 @@
 
 //Animation constructor
 Animation::Animation(Window* window, std::string filename):
+	running(false),
 	curFrame(0)
 {
 }
@@ -15,6 +16,7 @@ Animation::~Animation()
 void Animation::start()
 {
 	this->curFrame = 0;
+	this->running = true;
 }
 
 //update Animation
