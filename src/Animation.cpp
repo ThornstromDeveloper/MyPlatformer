@@ -9,6 +9,8 @@ Animation::Animation(Window* window, std::string filename, int amount):
 {
 	int frameW = this->getWidth() / amount;
 	int frameH = this->getHeight();
+
+	this->crop(Rectangle(0, 0, frameW, frameH));
 }
 
 //Animation destructor
@@ -27,6 +29,8 @@ void Animation::start()
 void Animation::update()
 {
 	this->nextFrame();
+
+	this->crop(Rectangle(this->clipRect->x, this->clipRect->y, this->clipRect->w, this->clipRect->h)); 
 }
 
 //next frame of Animation

@@ -2,9 +2,10 @@
 #include "Window.hpp"
 
 //Player constructor
-Player::Player(Window* window, int x, int y, int w, int h):
+Player::Player(Window* window, float x, float y, int w, int h):
 	FallingObject(x, y, w, h),
 	window(window),
+	currentAnimation(nullptr),
 	facingDirection(Player::FacingDirection::RIGHT)
 {
 	Animation* tmp = nullptr;

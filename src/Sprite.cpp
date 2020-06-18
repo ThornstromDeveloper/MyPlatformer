@@ -27,9 +27,14 @@ Sprite::~Sprite()
 	{
 		this->window->freeImage(this->image);
 	}
+
+	if (this->clipRect)
+	{
+		delete this->clipRect;
+	}
 }
 
-//crop sprite
+//crop Sprite
 void Sprite::crop(Rectangle rect)
 {
 	if (!this->clipRect)
@@ -48,14 +53,20 @@ void Sprite::render(int x, int y)
 	this->window->renderImage(this->image, this->clipRect, &destination);
 }
 
-//get width of sprite
+//get width of Sprite
 int Sprite::getWidth()
 {
 	return this->clipRect->w;
 }
 
-//get height of sprite
+//get height of Sprite
 int Sprite::getHeight()
 {
 	return this->clipRect->h;
+}
+
+//restore Sprite size
+void Sprite::restore()
+{
+	this->crop(Rectangle(0, 0, this->width, this->height));
 }

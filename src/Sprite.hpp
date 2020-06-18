@@ -15,6 +15,8 @@ public:
 	int getWidth();
 	int getHeight();
 
+	void restore();
+
 protected:
 	Window* window;
 	std::string filename;
