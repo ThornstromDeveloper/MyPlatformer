@@ -2,10 +2,11 @@
 #define PLAYER_HPP
 
 #include <vector>
+#include "FallingObject.hpp"
 #include "Window.hpp"
 #include "Animation.hpp"
 
-class Player
+class Player: public FallingObject
 {
 public:
 	enum class FacingDirection { LEFT, RIGHT };

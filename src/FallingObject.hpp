@@ -6,7 +6,7 @@
 class FallingObject : public GameObject
 {
 public:
-	FallingObject();
+	FallingObject(float x, float y, int w, int h);
 	virtual ~FallingObject();
 };
 

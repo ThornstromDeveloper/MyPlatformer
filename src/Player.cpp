@@ -3,6 +3,7 @@
 
 //Player constructor
 Player::Player(Window* window, int x, int y, int w, int h):
+	FallingObject(x, y, w, h),
 	window(window),
 	facingDirection(Player::FacingDirection::RIGHT)
 {
@@ -31,7 +32,7 @@ void Player::update()
 //render Player
 void Player::render()
 {
-	this->currentAnimation->render(100, 100);
+	this->currentAnimation->render(this->position->x, this->position->y);
 }
 
 //update Player animation
