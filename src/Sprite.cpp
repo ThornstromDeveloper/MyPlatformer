@@ -1,10 +1,14 @@
 #include "Sprite.hpp"
+#include "Shapes.hpp"
 
 //Sprite constructor
 Sprite::Sprite(Window* window, std::string filename):
 	window(window),
 	filename(filename),
-	image(nullptr)
+	image(nullptr),
+	clipRect(nullptr),
+	width(0),
+	height(0)
 {
 	this->image = window->loadImage(this->filename);
 	int w, h;
@@ -12,6 +16,8 @@ Sprite::Sprite(Window* window, std::string filename):
 
 	this->width = w;
 	this->height = h;
+
+	this->crop(Rectangle(0, 0, this->width, this->height));
 }
 
 //Sprite destructor
@@ -23,20 +29,33 @@ Sprite::~Sprite()
 	}
 }
 
-//render Sprite
-void Sprite::render()
+//crop sprite
+void Sprite::crop(Rectangle rect)
 {
-	SDL_Rect src;
-	src.x = 100;
-	src.y = 100;
-	src.w = width;
-	src.h = height;
+	if (!this->clipRect)
+	{
+		this->clipRect = new Rectangle;
+	}
 
-	SDL_Rect dest;
-	dest.x = 100;
-	dest.y = 100;
-	dest.w = 100;
-	dest.h = 100;
+	this->clipRect->copy(&rect);
+}
 
-	this->window->renderImage(this->image, src, dest);
+//render Sprite
+void Sprite::render(int x, int y)
+{
+	Rectangle destination(x, y, this->clipRect->w, this->clipRect->h);
+
+	this->window->renderImage(this->image, this->clipRect, &destination);
+}
+
+//get width of sprite
+int Sprite::getWidth()
+{
+	return this->clipRect->w;
+}
+
+//get height of sprite
+int Sprite::getHeight()
+{
+	return this->clipRect->h;
 }

@@ -7,6 +7,8 @@ Animation::Animation(Window* window, std::string filename, int amount):
 	curFrame(0),
 	maxFrame(amount)
 {
+	int frameW = this->getWidth() / amount;
+	int frameH = this->getHeight();
 }
 
 //Animation destructor

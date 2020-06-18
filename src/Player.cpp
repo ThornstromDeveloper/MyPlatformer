@@ -31,7 +31,7 @@ void Player::update()
 //render Player
 void Player::render()
 {
-	this->currentAnimation->render();
+	this->currentAnimation->render(100, 100);
 }
 
 //update Player animation
