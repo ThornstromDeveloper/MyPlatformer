@@ -152,6 +152,8 @@
   <ItemGroup>
     <ClCompile Include="src\Animation.cpp" />
     <ClCompile Include="src\Background.cpp" />
+    <ClCompile Include="src\FallingObject.cpp" />
+    <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\GameState.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\Shapes.cpp" />
@@ -166,6 +168,8 @@
   <ItemGroup>
     <ClInclude Include="src\Animation.hpp" />
     <ClInclude Include="src\Background.hpp" />
+    <ClInclude Include="src\FallingObject.hpp" />
+    <ClInclude Include="src\GameObject.hpp" />
     <ClInclude Include="src\GameState.hpp" />
     <ClInclude Include="src\Player.hpp" />
     <ClInclude Include="src\Shapes.hpp" />
