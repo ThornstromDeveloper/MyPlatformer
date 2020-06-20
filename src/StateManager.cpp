@@ -58,6 +58,8 @@ void StateManager::run()
 			this->window->refresh();
 		}
 
+		SDL_Delay(1000);
+
 		letsQuit = true;
 	}
 }
