@@ -60,4 +60,5 @@ Player::~Player()
 
 void Player::render(float cameraX, float cameraY)
 {
+	this->currentAnimation->render(this->position->x - cameraX, this->position->y - cameraY);
 }

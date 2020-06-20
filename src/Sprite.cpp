@@ -10,3 +10,7 @@ Sprite::Sprite(Window* window, std::string filename):
 Sprite::~Sprite()
 {
 }
+
+void Sprite::render(int x, int y)
+{
+}
