@@ -25,9 +25,12 @@ StateManager::~StateManager()
 void StateManager::run()
 {
 	bool letsQuit = false;
+	int counter = 0;
 
 	while (!letsQuit)
 	{
+		counter++;
+
 		//How many milliseconds the last frame took
 		unsigned int delta_ms = this->window->getDelta();
 
@@ -58,8 +61,9 @@ void StateManager::run()
 			this->window->refresh();
 		}
 
-		SDL_Delay(1000);
-
-		letsQuit = true;
+		if (counter == 10000)
+		{
+			letsQuit = true;
+		}
 	}
 }

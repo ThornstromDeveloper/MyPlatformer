@@ -167,6 +167,7 @@
     <ClCompile Include="src\Shapes.cpp" />
     <ClCompile Include="src\Sprite.cpp" />
     <ClCompile Include="src\StateManager.cpp" />
+    <ClCompile Include="src\Timer.cpp" />
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -180,6 +181,7 @@
     <ClInclude Include="src\Shapes.hpp" />
     <ClInclude Include="src\Sprite.hpp" />
     <ClInclude Include="src\StateManager.hpp" />
+    <ClInclude Include="src\Timer.hpp" />
     <ClInclude Include="src\Window.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
