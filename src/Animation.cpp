@@ -3,6 +3,12 @@
 Animation::Animation(Window* window, std::string filename, int ammount, int framerate, int loops):
 	Sprite(window, filename)
 {
+    int frameW = this->getWidth() / ammount;
+    int frameH = this->getHeight();
+}
+
+void Animation::update(float dt)
+{
 }
 
 void Animation::start()

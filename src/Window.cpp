@@ -81,6 +81,26 @@ void Window::refresh()
 	SDL_RenderPresent(this->renderer);
 }
 
+SDL_Texture* Window::loadImage(std::string filename)
+{
+	SDL_Texture* texture = IMG_LoadTexture(this->renderer, filename.c_str());
+
+	return texture;
+}
+
+void Window::renderImage(SDL_Texture* texture, Rectangle* source, Rectangle* destination)
+{
+	if (!texture || !source || !destination)
+	{
+		return;
+	}
+
+	SDL_Rect sdl_source = { (int)source->x, (int)source->y,	source->w, source->h };
+	SDL_Rect sdl_destination = { (int)destination->x, (int)destination->y, destination->w, destination->h };
+
+	SDL_RenderCopy(this->renderer, texture, &sdl_source, &sdl_destination);
+}
+
 //clear Window
 void Window::clear()
 {

@@ -11,7 +11,6 @@ GameStateGame::~GameStateGame()
 { 
 }
 
-//load everything
 void GameStateGame::load(int stack)
 {
 	int playerW = 14;
@@ -23,19 +22,20 @@ void GameStateGame::load(int stack)
 	this->player = new Player(this->window,	playerX, playerY, playerW, playerH,	100, 30);
 }
 
-//unload everything
 int GameStateGame::unload()
 {
+	delete this->player;
+
 	return 0;
 }
 
-//update game state
 GameState::StateCode GameStateGame::update(float dt)
 {
+	this->player->update(dt);
+
 	return GameState::CONTINUE;
 }
 
-//render game state
 void GameStateGame::render()
 {
 	this->player->render();

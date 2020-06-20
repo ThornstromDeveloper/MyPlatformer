@@ -3,6 +3,7 @@
 
 #include <string>
 #include <SDL.h>
+#include "Shapes.hpp"
 
 class Window
 {
@@ -11,6 +12,8 @@ public:
 	virtual ~Window();
 
 	void destroy();
+	void renderImage(SDL_Texture* texture, Rectangle* source, Rectangle* destination);
+	SDL_Texture* loadImage(std::string filename);
 	void create();
 	void setTitle(std::string title);
 

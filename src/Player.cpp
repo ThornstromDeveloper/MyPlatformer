@@ -58,7 +58,17 @@ Player::~Player()
 {
 }
 
+void Player::update(float dt)
+{
+	this->updateAnimation();
+}
+
 void Player::render(float cameraX, float cameraY)
 {
 	this->currentAnimation->render(this->position->x - cameraX, this->position->y - cameraY);
+}
+
+void Player::updateAnimation()
+{
+	this->currentAnimation->update();
 }

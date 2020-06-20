@@ -25,7 +25,9 @@ public:
 	Player(Window* window, float x, float y, int w, int h, int hp, float acceleration);
 	virtual ~Player();
 
+	void update(float dt);
 	void render(float cameraX = 0, float cameraY = 0);
+	void updateAnimation();
 
 private:
 	Window* window;
