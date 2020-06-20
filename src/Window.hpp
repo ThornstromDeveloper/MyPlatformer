@@ -21,6 +21,8 @@ public:
 	unsigned int width;
 	unsigned int height;
 
+	void refresh();
+	void clear();
 	unsigned int getDelta();
 
 private:

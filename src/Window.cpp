@@ -75,6 +75,18 @@ void Window::setTitle(std::string title)
 	}
 }
 
+//refresh Window
+void Window::refresh()
+{
+	SDL_RenderPresent(this->renderer);
+}
+
+//clear Window
+void Window::clear()
+{
+}
+
+//How many milliseconds the last frame took
 unsigned int Window::getDelta()
 {
 	return this->current_frame_delta;

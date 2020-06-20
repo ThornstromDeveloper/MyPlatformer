@@ -38,6 +38,26 @@ void StateManager::run()
 
 		whatToDoNow = this->currentState->update(delta);
 
+		switch (whatToDoNow)
+		{
+			case GameState::CONTINUE:
+				break;
+
+			case GameState::QUIT:
+				letsQuit = true;
+				break;
+
+			default:
+				break;
+		}
+
+		if (this->window)
+		{
+			this->window->clear();
+			this->currentState->render();
+			this->window->refresh();
+		}
+
 		letsQuit = true;
 	}
 }
