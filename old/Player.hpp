@@ -3,8 +3,8 @@
 
 #include <vector>
 #include "FallingObject.hpp"
-#include "Window.hpp"
 #include "Animation.hpp"
+#include "Window.hpp"
 
 class Player: public FallingObject
 {

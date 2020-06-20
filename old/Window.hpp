@@ -20,6 +20,8 @@ public:
 	void clear();
 	void setTitle(std::string title);
 
+	void drawBox(Rectangle rect);
+
 	SDL_Window* window;
 	SDL_Surface* surface;
 	SDL_Renderer* renderer;

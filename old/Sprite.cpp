@@ -14,6 +14,7 @@ Sprite::Sprite(Window* window, std::string filename):
 	int w, h;
 	SDL_QueryTexture(image, nullptr, nullptr, &w, &h);
 
+	//original width and height of Sprite
 	this->width = w;
 	this->height = h;
 

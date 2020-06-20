@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 #include "Window.hpp"
 #include "SDL.h"
 #include "SDL_image.h"
