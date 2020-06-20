@@ -32,6 +32,7 @@ private:
 	float acceleration;
 	Animation* currentAnimation;
 	std::vector<Animation*> animations;
+	FacingDirection facingDirection;
 };
 
 #endif //PLAYER_HPP
