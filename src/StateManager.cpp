@@ -7,6 +7,7 @@ StateManager::StateManager(Window* window):
 	currentState(nullptr)
 {
 	this->currentState = new GameStateGame(this->window);
+	this->currentState->load();
 }
 
 StateManager::~StateManager()
@@ -16,7 +17,7 @@ StateManager::~StateManager()
 		this->currentState->unload();
 		delete this->currentState;
 
-		this->currentState = nullptr; // you never know
+		this->currentState = nullptr;
 	}
 }
 
