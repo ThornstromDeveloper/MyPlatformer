@@ -21,8 +21,11 @@ public:
 	unsigned int width;
 	unsigned int height;
 
+	unsigned int getDelta();
+
 private:
 	std::string title;
+	unsigned int current_frame_delta;
 };
 
 #endif //WINDOW_HPP

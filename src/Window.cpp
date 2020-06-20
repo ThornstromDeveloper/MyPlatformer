@@ -74,3 +74,8 @@ void Window::setTitle(std::string title)
 		SDL_SetWindowTitle(this->window, title.c_str());
 	}
 }
+
+unsigned int Window::getDelta()
+{
+	return this->current_frame_delta;
+}

@@ -28,3 +28,14 @@ int GameStateGame::unload()
 {
 	return 0;
 }
+
+//update game state
+GameState::StateCode GameStateGame::update(float dt)
+{
+	return GameState::CONTINUE;
+}
+
+//render game state
+void GameStateGame::render()
+{
+}

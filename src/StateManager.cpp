@@ -24,4 +24,20 @@ StateManager::~StateManager()
 //Main loop of the game
 void StateManager::run()
 {
+	bool letsQuit = false;
+
+	while (!letsQuit)
+	{
+		//How many milliseconds the last frame took
+		unsigned int delta_ms = this->window->getDelta();
+
+		//How many seconds have passed between last frame and this one?
+		float delta = (float)(delta_ms) / 1000.0;
+
+		GameState::StateCode whatToDoNow;
+
+		whatToDoNow = this->currentState->update(delta);
+
+		letsQuit = true;
+	}
 }
