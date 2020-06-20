@@ -3,6 +3,7 @@
 
 Player::Player(Window* window, float x, float y, int w, int h, int hp, float acceleration):
 	FallingObject(x, y, w, h),
+	DamageableObject(hp),
 	window(window),
 	acceleration(acceleration),
 	currentAnimation(nullptr),
@@ -60,6 +61,11 @@ Player::~Player()
 
 void Player::update(float dt)
 {
+	if (this->isAlive)
+	{
+		this->desiredPosition->update();
+	}
+
 	this->updateAnimation();
 }
 

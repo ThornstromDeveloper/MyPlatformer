@@ -158,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Animation.cpp" />
+    <ClCompile Include="src\DamageableObject.cpp" />
     <ClCompile Include="src\FallingObject.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\GameStateGame.cpp" />
@@ -172,6 +173,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Animation.hpp" />
+    <ClInclude Include="src\DamageableObject.hpp" />
     <ClInclude Include="src\FallingObject.hpp" />
     <ClInclude Include="src\GameObject.hpp" />
     <ClInclude Include="src\GameState.hpp" />

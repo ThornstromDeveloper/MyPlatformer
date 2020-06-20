@@ -3,10 +3,12 @@
 
 #include <vector>
 #include "FallingObject.hpp"
+#include "DamageableObject.hpp"
 #include "Animation.hpp"
 #include "Window.hpp"
 
-class Player : public FallingObject
+class Player : public FallingObject,
+			   public DamageableObject
 {
 public:
 	enum FacingDirection { LEFT, RIGHT };
