@@ -38,4 +38,5 @@ GameState::StateCode GameStateGame::update(float dt)
 //render game state
 void GameStateGame::render()
 {
+	this->player->render();
 }
