@@ -25,12 +25,9 @@ StateManager::~StateManager()
 void StateManager::run()
 {
 	bool letsQuit = false;
-	int counter = 0;
 
 	while (!letsQuit)
 	{
-		counter++;
-
 		//How many milliseconds the last frame took
 		unsigned int delta_ms = this->window->getDelta();
 
@@ -59,11 +56,6 @@ void StateManager::run()
 			this->window->clear();
 			this->currentState->render();
 			this->window->refresh();
-		}
-
-		if (counter == 10000)
-		{
-			letsQuit = true;
 		}
 	}
 }

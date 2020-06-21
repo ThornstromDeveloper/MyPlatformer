@@ -17,7 +17,9 @@ public:
 	void render();
 
 private:
+	void updateInput();
 	Window* window;
+	bool will_quit;
 	Player* player;
 };
 
