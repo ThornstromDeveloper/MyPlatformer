@@ -15,6 +15,9 @@ public:
 	void destroy();
 	void renderImage(SDL_Texture* texture, Rectangle* source, Rectangle* destination);
 	SDL_Texture* loadImage(std::string filename);
+	void freeImage(SDL_Texture* image);
+	void freeImage(SDL_Surface* image);
+	void refresh();
 	void create();
 	void setTitle(std::string title);
 
@@ -25,7 +28,6 @@ public:
 	unsigned int width;
 	unsigned int height;
 
-	void refresh();
 	void clear();
 	unsigned int getDelta();
 

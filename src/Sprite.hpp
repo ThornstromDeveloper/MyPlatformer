@@ -16,6 +16,7 @@ public:
 	virtual void render(int x, int y);
 	int getWidth();
 	int getHeight();
+	void restore();
 
 protected:
 	Window* window;

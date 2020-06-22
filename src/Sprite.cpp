@@ -4,7 +4,9 @@ Sprite::Sprite(Window* window, std::string filename):
 	window(window),
 	filename(filename),
 	image(nullptr),
-	clipRect(nullptr)
+	clipRect(nullptr),
+	width(0),
+	height(0)
 {
 	this->image = window->loadImage(this->filename);
 
@@ -19,6 +21,11 @@ Sprite::Sprite(Window* window, std::string filename):
 
 Sprite::~Sprite()
 {
+	if (this->image)
+	{
+		this->window->freeImage(this->image);
+	}
+
 	if (this->clipRect)
 	{
 		delete this->clipRect;
@@ -50,4 +57,9 @@ int Sprite::getWidth()
 int Sprite::getHeight()
 {
 	return this->clipRect->h;
+}
+
+void Sprite::restore()
+{
+	this->crop(Rectangle(0, 0, this->width, this->height));
 }

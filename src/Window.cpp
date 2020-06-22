@@ -67,7 +67,6 @@ void Window::create()
 	}
 }
 
-//set Window title
 void Window::setTitle(std::string title)
 {
 	if (this->window) {
@@ -75,7 +74,6 @@ void Window::setTitle(std::string title)
 	}
 }
 
-//refresh Window
 void Window::refresh()
 {
 	SDL_RenderPresent(this->renderer);
@@ -86,6 +84,22 @@ SDL_Texture* Window::loadImage(std::string filename)
 	SDL_Texture* texture = IMG_LoadTexture(this->renderer, filename.c_str());
 
 	return texture;
+}
+
+void Window::freeImage(SDL_Texture* image)
+{
+	if (image)
+	{
+		SDL_DestroyTexture(image);
+	}
+}
+
+void Window::freeImage(SDL_Surface* image)
+{
+	if (image)
+	{
+		SDL_FreeSurface(image);
+	}
 }
 
 void Window::renderImage(SDL_Texture* texture, Rectangle* source, Rectangle* destination)
