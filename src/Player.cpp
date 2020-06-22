@@ -76,6 +76,27 @@ void Player::update(float dt)
 
 	this->updateInput();
 
+	float a = 0.2612312321;
+
+	this->vx = (a * this->targetVx) + ((1 - a) * this->vx) * dt;
+
+	if (fabs(this->vx) < this->stoppedThreshold)
+	{
+		this->vx = 0;
+	}
+
+	if (this->damaging)
+	{
+		if (this->facingDirection == RIGHT)
+		{
+			this->vx = -10;
+		}
+		else
+		{
+			this->vx = 10;
+		}
+	}
+
 	if (this->isAlive)
 	{
 		this->desiredPosition->addX(this->vx);

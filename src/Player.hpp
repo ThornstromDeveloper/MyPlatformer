@@ -36,6 +36,7 @@ public:
 private:
 	Window* window;
 	float acceleration;
+	float stoppedThreshold;
 	Animation* currentAnimation;
 	std::vector<Animation*> animations;
 	FacingDirection facingDirection;
