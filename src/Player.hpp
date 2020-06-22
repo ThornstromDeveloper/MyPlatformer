@@ -31,6 +31,7 @@ public:
 	void render(float cameraX = 0, float cameraY = 0);
 	void updateInput();
 	void updateAnimation();
+	void jump(bool willJump = true);
 
 private:
 	Window* window;
@@ -38,6 +39,12 @@ private:
 	Animation* currentAnimation;
 	std::vector<Animation*> animations;
 	FacingDirection facingDirection;
+
+	bool isJumping;
+	bool isDoubleJumping;
+	bool win;
+	float thrust;
+	bool damaging;
 };
 
 #endif //PLAYER_HPP

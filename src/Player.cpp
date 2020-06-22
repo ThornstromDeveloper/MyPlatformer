@@ -8,7 +8,12 @@ Player::Player(Window* window, float x, float y, int w, int h, int hp, float acc
 	window(window),
 	acceleration(acceleration),
 	currentAnimation(nullptr),
-	facingDirection(RIGHT)
+	facingDirection(RIGHT),
+	isJumping(false),
+	isDoubleJumping(false),
+	win(false),
+	thrust(33),
+	damaging(false)
 { 
 	Animation* tmp = nullptr;
 
@@ -63,7 +68,19 @@ Player::~Player()
 void Player::update(float dt)
 {
 	this->preUpdate(dt);
+
+	if (this->boundaryStatus == OFF_BOTTOM)
+	{
+		this->jump(false);
+	}
+
 	this->updateInput();
+
+	if (this->isAlive)
+	{
+		this->desiredPosition->addX(this->vx);
+		this->desiredPosition->addY(this->vy);
+	}
 
 	if (this->isAlive)
 	{
@@ -110,4 +127,32 @@ void Player::updateInput()
 void Player::updateAnimation()
 {
 	this->currentAnimation->update();
+}
+
+void Player::jump(bool willJump)
+{
+	if (willJump)
+	{
+		if (this->isDoubleJumping)
+		{
+			return;
+		}
+
+		if (this->isJumping)
+		{
+			this->isDoubleJumping = true;
+		}
+
+		this->inAir = true;
+		this->isJumping = true;
+
+		this->vy = (-1 * this->thrust);
+	}
+	else
+	{
+		this->inAir = false;
+		this->vy = 0;
+		this->isJumping = false;
+		this->isDoubleJumping = false;
+	}
 }
