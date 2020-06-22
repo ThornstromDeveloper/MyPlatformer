@@ -22,6 +22,8 @@ bool Animation::isRunning()
 
 void Animation::update(float dt)
 {
+	UNUSED(dt);
+
 	if (this->framerate == 0)
 	{
 		return;
@@ -53,12 +55,6 @@ void Animation::update(float dt)
 	this->timer.restart();
 }
 
-void Animation::firstFrame()
-{
-	this->curFrame = 0;
-	this->clipRect->x = 0;
-}
-
 void Animation::nextFrame()
 {
 	if (this->framerate == 0)
@@ -78,6 +74,39 @@ void Animation::nextFrame()
 	{
 		this->firstFrame();
 	}
+}
+
+void Animation::prevFrame()
+{
+	if (this->framerate == 0)
+	{
+		return;
+	}
+
+	this->curFrame--;
+	this->clipRect->x -= this->clipRect->w;
+
+	if (this->curFrame < 0)
+	{
+		this->lastFrame();
+	}
+}
+
+void Animation::firstFrame()
+{
+	this->curFrame = 0;
+	this->clipRect->x = 0;
+}
+
+void Animation::lastFrame()
+{
+	this->curFrame = this->maxFrame;
+	this->clipRect->x = this->clipRect->w * this->maxFrame;
+}
+
+void Animation::setFramerate(int framerate)
+{
+	this->framerate = framerate;
 }
 
 void Animation::start()

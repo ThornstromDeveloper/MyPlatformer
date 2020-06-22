@@ -10,7 +10,10 @@ public:
     Animation(Window* window, std::string filepath, int ammount = 1, int framerate = 0, int loops = -1);
     virtual void update(float dt = 0);
     void nextFrame();
+    void prevFrame();
     void firstFrame();
+    void lastFrame();
+    void setFramerate(int framerate);
     void start();
     bool isRunning();
 
