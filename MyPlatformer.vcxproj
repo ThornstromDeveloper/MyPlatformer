@@ -164,6 +164,7 @@
     <ClCompile Include="src\GameStateGame.cpp" />
     <ClCompile Include="src\InputManager.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\PhysicsManager.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\SDL.cpp" />
     <ClCompile Include="src\Shapes.cpp" />
@@ -181,6 +182,7 @@
     <ClInclude Include="src\GameStateGame.hpp" />
     <ClInclude Include="src\InputDefinitions.hpp" />
     <ClInclude Include="src\InputManager.hpp" />
+    <ClInclude Include="src\PhysicsManager.hpp" />
     <ClInclude Include="src\Player.hpp" />
     <ClInclude Include="src\SDL.hpp" />
     <ClInclude Include="src\Shapes.hpp" />
