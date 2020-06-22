@@ -96,12 +96,31 @@ void Animation::firstFrame()
 {
 	this->curFrame = 0;
 	this->clipRect->x = 0;
+
+	if (this->loops != -1)
+	{
+		this->timesLooped++;
+
+		if ((this->timesLooped) >= (this->loops))
+		{
+			this->running = false;
+		}
+	}
 }
 
 void Animation::lastFrame()
 {
 	this->curFrame = this->maxFrame;
 	this->clipRect->x = this->clipRect->w * this->maxFrame;
+}
+
+void Animation::goTo(int frame)
+{
+	if ((frame >= 0) && (frame <= (this->maxFrame)))
+	{
+		this->curFrame = frame;
+		this->clipRect->x = (this->clipRect->w * frame);
+	}
 }
 
 void Animation::setFramerate(int framerate)
@@ -126,4 +145,25 @@ void Animation::start()
 	this->timesLooped = 0;
 	this->running = true;
 	this->timer.start();
+}
+
+void Animation::stop()
+{
+	if (this->framerate == 0) return;
+	if (!(this->running))     return;
+
+	this->running = false;
+	this->timer.stop();
+}
+
+void Animation::restart()
+{
+	this->stop();
+	this->start();
+}
+
+void Animation::setLoopAmount(int times)
+{
+	this->loops = times;
+	this->timesLooped = 0;
 }

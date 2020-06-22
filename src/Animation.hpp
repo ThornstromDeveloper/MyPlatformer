@@ -13,9 +13,13 @@ public:
     void prevFrame();
     void firstFrame();
     void lastFrame();
+    void goTo(int frame);
     void setFramerate(int framerate);
     void start();
+    void stop();
+    void restart();
     bool isRunning();
+    void setLoopAmount(int times = -1);
 
 private:
     unsigned int framerate;
