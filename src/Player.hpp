@@ -29,6 +29,7 @@ public:
 
 	void update(float dt);
 	void render(float cameraX = 0, float cameraY = 0);
+	void updateInput();
 	void updateAnimation();
 
 private:

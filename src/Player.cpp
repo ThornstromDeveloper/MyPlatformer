@@ -1,4 +1,5 @@
 #include "Player.hpp"
+#include "InputManager.hpp"
 #include "GameStateGame.hpp"
 
 Player::Player(Window* window, float x, float y, int w, int h, int hp, float acceleration):
@@ -61,6 +62,9 @@ Player::~Player()
 
 void Player::update(float dt)
 {
+	this->preUpdate(dt);
+	this->updateInput();
+
 	if (this->isAlive)
 	{
 		this->desiredPosition->update();
@@ -72,6 +76,35 @@ void Player::update(float dt)
 void Player::render(float cameraX, float cameraY)
 {
 	this->currentAnimation->render(this->position->x - cameraX, this->position->y - cameraY);
+}
+
+void Player::updateInput()
+{
+	InputManager* input = InputManager::getInstance();
+
+	float turbo = 1.7;
+
+	if (input->isKeyPressed(KEY_A) || input->isKeyPressed(KEY_LEFT))
+	{
+		this->targetVx = (-1 * this->acceleration);
+		this->facingDirection = LEFT;
+
+		if (input->shift())
+		{
+			this->targetVx *= turbo;
+		}
+	}
+
+	if (input->isKeyPressed(KEY_D) || input->isKeyPressed(KEY_RIGHT))
+	{
+		this->targetVx = (this->acceleration);
+		this->facingDirection = RIGHT;
+
+		if (input->shift())
+		{
+			this->targetVx *= turbo;
+		}
+	}
 }
 
 void Player::updateAnimation()
