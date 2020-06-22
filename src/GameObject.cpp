@@ -16,6 +16,54 @@ GameObject::~GameObject()
 	delete this->box;
 }
 
+float GameObject::getX()
+{
+	return this->box->x;
+}
+
+float GameObject::getY()
+{
+	return this->box->y;
+}
+
+float GameObject::getCenterX()
+{
+	return this->box->center.x;
+}
+
+float GameObject::getCenterY()
+{
+	return this->box->center.y;
+}
+
+int GameObject::getWidth()
+{
+	return this->box->w;
+}
+
+int GameObject::getHeight()
+{
+	return this->box->h;
+}
+
+bool GameObject::collidedWith(GameObject* other)
+{
+	return (this->box->overlaps(other->box));
+}
+
+void GameObject::placeOnTop(GameObject* other)
+{
+	this->box->placeOnTop(other->box);
+
+	this->position->x = other->position->x;
+	this->position->y = other->position->y;
+}
+
+void GameObject::setBoundary(Rectangle boundary)
+{
+	this->boundary = boundary;
+}
+
 BoundaryStatus GameObject::actOnBoundaries()
 {
 	if (this->boundary.leftmost != -1)

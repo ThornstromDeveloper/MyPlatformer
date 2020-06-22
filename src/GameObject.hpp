@@ -18,7 +18,17 @@ public:
     virtual void update(float dt) = 0;
     virtual void render(float cameraX, float cameraY) = 0;
 
+    bool collidedWith(GameObject* other);
+    void placeOnTop(GameObject* other);
+    void setBoundary(Rectangle boundary);
     BoundaryStatus actOnBoundaries();
+
+    float getX();
+    float getY();
+    float getCenterX();
+    float getCenterY();
+    int   getWidth();
+    int   getHeight();
 
     Point* position;
     Rectangle* box;
