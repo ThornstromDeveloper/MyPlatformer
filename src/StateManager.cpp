@@ -1,13 +1,19 @@
+#include <ctime>
 #include "StateManager.hpp"
 #include "GameStateGame.hpp"
 #include "Window.hpp"
 
 StateManager::StateManager(Window* window):
 	window(window),
-	currentState(nullptr)
+	currentState(nullptr),
+	sharedInfo(0)
 {
 	this->currentState = new GameStateGame(this->window);
+
 	this->currentState->load();
+	this->sharedInfo = 0;
+
+	srand(time(nullptr));
 }
 
 StateManager::~StateManager()
@@ -25,6 +31,7 @@ StateManager::~StateManager()
 void StateManager::run()
 {
 	bool letsQuit = false;
+	bool firstFrame = true;
 
 	while (!letsQuit)
 	{
@@ -33,6 +40,11 @@ void StateManager::run()
 
 		//How many seconds have passed between last frame and this one?
 		float delta = (float)(delta_ms) / 1000.0;
+
+		if (firstFrame)
+		{
+			firstFrame = false;
+		}
 
 		GameState::StateCode whatToDoNow;
 
@@ -57,5 +69,7 @@ void StateManager::run()
 			this->currentState->render();
 			this->window->refresh();
 		}
+
+		this->window->delayFramerateIfNeeded();
 	}
 }

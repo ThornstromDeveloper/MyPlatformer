@@ -7,7 +7,9 @@
 Window::Window(uint32_t width, uint32_t height, std::string title):
 	window(nullptr),
 	surface(nullptr),
-	renderer(nullptr)
+	renderer(nullptr),
+	width(width),
+	height(height)
 {
 	this->setTitle(title);
 	this->width = width;
@@ -115,9 +117,20 @@ void Window::renderImage(SDL_Texture* texture, Rectangle* source, Rectangle* des
 	SDL_RenderCopy(this->renderer, texture, &sdl_source, &sdl_destination);
 }
 
-//clear Window
 void Window::clear()
 {
+}
+
+void Window::delayFramerateIfNeeded()
+{
+	this->current_frame_delta = this->framerateTimer.delta();
+
+	if (this->current_frame_delta < this->frame_delay)
+	{
+		SDL_Delay((this->frame_delay) - this->current_frame_delta);
+	}
+
+	this->framerateTimer.restart();
 }
 
 //How many milliseconds the last frame took

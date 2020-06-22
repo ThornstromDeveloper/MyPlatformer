@@ -29,10 +29,13 @@ public:
 	unsigned int height;
 
 	void clear();
+	void delayFramerateIfNeeded();
 	unsigned int getDelta();
 
 private:
 	std::string title;
+	Timer framerateTimer;
+	unsigned int frame_delay;
 	unsigned int current_frame_delta;
 };
 

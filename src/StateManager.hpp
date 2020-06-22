@@ -15,6 +15,7 @@ public:
 private:
 	Window* window;
 	GameState* currentState;
+	int sharedInfo;
 };
 
 #endif //STATEMANAGER_HPP
