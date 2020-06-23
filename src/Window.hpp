@@ -3,6 +3,7 @@
 
 #include <string>
 #include <SDL.h>
+#include "Color.hpp"
 #include "Shapes.hpp"
 #include "Timer.hpp"
 
@@ -28,13 +29,19 @@ public:
 	unsigned int width;
 	unsigned int height;
 
+	unsigned int originalWidth;
+	unsigned int originalHeight;
+	bool isFullscreen;
+
 	void clear();
 	void delayFramerateIfNeeded();
 	unsigned int getDelta();
 
 private:
 	std::string title;
+	Color bg_color;
 	Timer framerateTimer;
+	unsigned int framerate;
 	unsigned int frame_delay;
 	unsigned int current_frame_delta;
 };

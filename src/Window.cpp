@@ -9,7 +9,15 @@ Window::Window(uint32_t width, uint32_t height, std::string title):
 	surface(nullptr),
 	renderer(nullptr),
 	width(width),
-	height(height)
+	height(height),
+	originalWidth(width),
+	originalHeight(height),
+	isFullscreen(false),
+	title(title),
+	bg_color(0, 0, 0),
+	framerate(60),
+	frame_delay(0),
+	current_frame_delta(0)
 {
 	this->setTitle(title);
 	this->width = width;
@@ -23,7 +31,6 @@ Window::~Window()
 	this->destroy();
 }
 
-//destroy Window
 void Window::destroy()
 {
 	if (this->renderer)
@@ -45,7 +52,6 @@ void Window::destroy()
 	}
 }
 
-//create Window
 void Window::create()
 {
 	this->destroy();
