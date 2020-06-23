@@ -20,6 +20,7 @@ public:
 	void freeImage(SDL_Surface* image);
 	void refresh();
 	void create();
+	void fill(Color color);
 	void setTitle(std::string title);
 
 	SDL_Window* window;

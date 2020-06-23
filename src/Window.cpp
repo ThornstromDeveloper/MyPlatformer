@@ -20,10 +20,15 @@ Window::Window(uint32_t width, uint32_t height, std::string title):
 	current_frame_delta(0)
 {
 	this->setTitle(title);
+	this->create();
+
 	this->width = width;
 	this->height = height;
 
-	this->create();
+	this->framerateTimer.start();
+
+	this->clear();
+	this->refresh();
 }
 
 Window::~Window()
@@ -123,8 +128,15 @@ void Window::renderImage(SDL_Texture* texture, Rectangle* source, Rectangle* des
 	SDL_RenderCopy(this->renderer, texture, &sdl_source, &sdl_destination);
 }
 
+void Window::fill(Color color)
+{
+	SDL_SetRenderDrawColor(this->renderer, color.r(), color.g(), color.b(), color.a());
+	SDL_RenderClear(this->renderer);
+}
+
 void Window::clear()
 {
+	this->fill(this->bg_color);
 }
 
 void Window::delayFramerateIfNeeded()
